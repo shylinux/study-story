@@ -1,0 +1,17 @@
+title "数据结构"
+
+spark `圆周率`
+
+demo.pi
+
+chapter "绪论"
+
+brief "逻辑结构"
+label "逻辑结构" `
+表 树 图
+`
+brief "存储结构"
+label "存储结构" `
+顺序 散列
+索引 链接
+`
