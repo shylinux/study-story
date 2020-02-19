@@ -32,9 +32,16 @@ var Index = &ice.Context{Name: "demo", Help: "demo",
 		"sort": {Name: "sort", Help: "排序", Meta: kit.Dict("display", "github.com/shylinux/study-story/demo/sort.js"), List: kit.List(
 			kit.MDB_INPUT, "text", "name", "count",
 			kit.MDB_INPUT, "text", "name", "speed",
-			kit.MDB_INPUT, "button", "name", "随机",
+			kit.MDB_INPUT, "button", "name", "随机", "action", "auto",
 		), Hand: func(m *ice.Message, c *ice.Context, cmd string, arg ...string) {
 			n := kit.Int(kit.Select("20", arg, 0))
+			if n > 100 {
+				n = 100
+			}
+			if n < 0 {
+				n = 10
+			}
+
 			m.Option("width", n*20)
 			m.Option("height", 130)
 			m.Option("font-size", kit.Select("16", arg, 3))
@@ -55,9 +62,16 @@ var Index = &ice.Context{Name: "demo", Help: "demo",
 		"tree": {Name: "tree", Help: "二叉树", Meta: kit.Dict("display", "github.com/shylinux/study-story/demo/tree.js"), List: kit.List(
 			kit.MDB_INPUT, "text", "name", "count",
 			kit.MDB_INPUT, "text", "name", "speed",
-			kit.MDB_INPUT, "button", "name", "随机",
+			kit.MDB_INPUT, "button", "name", "随机", "action", "auto",
 		), Hand: func(m *ice.Message, c *ice.Context, cmd string, arg ...string) {
-			n := kit.Int(kit.Select("20", arg, 0))
+			n := kit.Int(kit.Select("10", arg, 0))
+			if n > 100 {
+				n = 100
+			}
+			if n < 0 {
+				n = 10
+			}
+
 			m.Option("width", n*20)
 			m.Option("height", 130)
 			m.Option("font-size", kit.Select("16", arg, 3))
